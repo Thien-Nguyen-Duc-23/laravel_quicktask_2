@@ -5,8 +5,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('language/{locale}', function ($locale) {
-    Session::put('locale', $locale);
-    
-    return redirect()->back();
-}); 
+// lay values
+Route::get('/tasks', 'TaskController@index') ;
+//thay ngon ngu
+Route::get('language/{locale}', 'ChangeLanguage@changelanguage'); 
+// thao tac
+Route::resource('tasks', 'TaskController');
